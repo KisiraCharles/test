@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VPN Setup Tutorials — ULTRA CONNECT</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body {
+      background-color: #000000; color: #ffffff; overflow-x: hidden;
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.88) 100%),
+        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop');
+      background-size: cover; background-position: center; background-attachment: fixed;
+    }
+    header {
+      position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 40px; z-index: 1000; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .logo { font-size: 1.2rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #fff; text-decoration: none; }
+    .badge-ug { font-size: 0.75rem; background: rgba(255, 255, 255, 0.1); color: #ccc; padding: 4px 8px; border-radius: 2px; margin-left: 8px; border: 1px solid rgba(255, 255, 255, 0.2); }
+    nav a { color: #aaaaaa; text-decoration: none; margin-left: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s; }
+    nav a:hover { color: #ffffff; }
+
+    .page-container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 140px 20px 60px 20px; }
+    h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 15px; text-align: center; }
+    p.subtitle { font-size: 0.95rem; color: #d1d5db; max-width: 600px; line-height: 1.6; margin-bottom: 40px; text-align: center; }
+
+    .tutorial-card { background: rgba(15, 15, 15, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); padding: 30px; margin-bottom: 30px; text-align: left; width: 100%; max-width: 800px; border-radius: 4px; }
+    .tutorial-card h2 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; }
+    .tutorial-card ol { margin-left: 20px; color: #cccccc; font-size: 0.9rem; line-height: 1.8; margin-bottom: 20px; }
+
+    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; background: #000; border: 1px solid rgba(255, 255, 255, 0.2); margin-top: 15px; }
+    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+    .btn-back { color: #888888; text-decoration: none; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 25px; }
+    .btn-back:hover { color: #ffffff; }
+    footer { padding: 40px 20px; text-align: center; font-size: 0.75rem; color: #777777; width: 100%; }
+
+    @media (max-width: 600px) { nav { display: none; } h1 { font-size: 1.8rem; } }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <a href="index.html" class="logo">ULTRA CONNECT</a>
+      <span class="badge-ug">UGANDA 🇺🇬</span>
+    </div>
+    <nav>
+      <a href="index.html#apps">Apps</a>
+      <a href="order-vpn.html">VPN Order</a>
+      <a href="data-loading.html">Data Loading</a>
+      <a href="tutorials.html" style="color: #ffffff; font-weight: bold;">Tutorials</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="page-container">
+    <h1>VPN SETUP TUTORIALS</h1>
+    <p class="subtitle">Watch video guides and follow step-by-step instructions to configure your VPN application.</p>
+
+    <!-- Guide 1: Exotic Tunnel / Fast VIP -->
+    <div class="tutorial-card">
+      <h2>1. Setting Up Exotic Tunnel & Exotic Fast VIP</h2>
+      <ol>
+        <li>Launch the app and open the side menu.</li>
+        <li>Select <strong>Account Credentials</strong> and enter your Username & Password.</li>
+        <li>Select an active server location and tap <strong>CONNECT</strong>.</li>
+      </ol>
+      
+      <div class="video-wrapper">
+        <!-- Paste Google Drive Video File ID below -->
+        <iframe src="https://drive.google.com/file/d/YOUR_DRIVE_VIDEO_ID_1/preview" allow="autoplay"></iframe>
+      </div>
+    </div>
+
+    <!-- Guide 2: HTTP Custom -->
+    <div class="tutorial-card">
+      <h2>2. Setting Up HTTP Custom</h2>
+      <ol>
+        <li>Open HTTP Custom and tap the <strong>+ (Plus)</strong> floating button.</li>
+        <li>Select <strong>Open Config</strong> and import your downloaded `.hc` file.</li>
+        <li>Check <strong>Use Payload / SSH</strong> and tap <strong>CONNECT</strong>.</li>
+      </ol>
+
+      <div class="video-wrapper">
+        <!-- Paste Google Drive Video File ID below -->
+        <iframe src="https://drive.google.com/file/d/YOUR_DRIVE_VIDEO_ID_2/preview" allow="autoplay"></iframe>
+      </div>
+    </div>
+
+    <a href="index.html" class="btn-back">← Back to Portal</a>
+
+    <footer>
+      <p>© 2026 ULTRA CONNECT UGANDA. ALL RIGHTS RESERVED.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
