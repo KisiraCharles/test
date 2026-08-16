@@ -22,7 +22,21 @@
     nav a { color: #aaaaaa; text-decoration: none; margin-left: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s; }
     nav a:hover { color: #ffffff; }
 
-    .page-container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 140px 20px 60px 20px; }
+    /* Announcement Marquee */
+    .marquee-container {
+      width: 100%;
+      background: rgba(255, 204, 0, 0.15);
+      border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+      color: #ffcc00;
+      padding: 10px 0;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 75px;
+    }
+
+    .page-container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px 120px 20px; }
     h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; text-align: center; }
     
     .price-tag { background: #ffffff; color: #000000; font-weight: 800; font-size: 0.9rem; letter-spacing: 2px; padding: 6px 16px; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
@@ -131,9 +145,45 @@
     .thank-you-box { display: none; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 30px; text-align: center; }
     .btn-back { color: #888888; text-decoration: none; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 25px; }
     .btn-back:hover { color: #ffffff; }
+
+    /* Fixed Centered Bottom Button for Direct KYC SMS to 175 */
+    .centered-kyc-btn {
+      position: fixed;
+      bottom: 25px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+      background-color: #25d366;
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+    .centered-kyc-btn:hover {
+      background-color: #1ebd56;
+      transform: translateX(-50%) translateY(-3px);
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
+    }
+
     footer { padding: 40px 20px; text-align: center; font-size: 0.75rem; color: #777777; width: 100%; }
 
-    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } .form-group.full-width { grid-column: span 1; } nav { display: none; } }
+    @media (max-width: 600px) { 
+      .form-grid { grid-template-columns: 1fr; } 
+      .form-group.full-width { grid-column: span 1; } 
+      nav { display: none; } 
+      .centered-kyc-btn { bottom: 15px; padding: 12px 20px; font-size: 0.72rem; }
+    }
   </style>
 </head>
 <body>
@@ -151,6 +201,13 @@
       <a href="index.html#contact">Contact</a>
     </nav>
   </header>
+
+  <!-- Running Information Marquee -->
+  <div class="marquee-container">
+    <marquee scrollamount="6" behavior="scroll" direction="left">
+      ⚡ THIS UNLIMITED DATA PLAN ENABLES ANY VPN APPLICATIONS TO WORK WHETHER PREMIUM OR FREE TIER.
+    </marquee>
+  </div>
 
   <div class="page-container">
     <h1>UNLIMITED DATA LOADING</h1>
@@ -254,6 +311,11 @@
       <p>© 2026 ULTRA CONNECT UGANDA. ALL RIGHTS RESERVED.</p>
     </footer>
   </div>
+
+  <!-- Centered Floating Action Button triggering KYC message to 175 -->
+  <a href="sms:175?body=KYC%20Unlimited%20Data%20Loading%20Request" class="centered-kyc-btn">
+    💬 Load Unlimited Data Plan
+  </a>
 
   <script>
     function handleDataSubmit(event) {
