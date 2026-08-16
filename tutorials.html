@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VPN Setup Tutorials — ULTRA CONNECT</title>
+  <title>Video Tutorials — ULTRA CONNECT</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body {
@@ -22,21 +22,49 @@
     nav a { color: #aaaaaa; text-decoration: none; margin-left: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s; }
     nav a:hover { color: #ffffff; }
 
-    .page-container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 140px 20px 60px 20px; }
-    h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 15px; text-align: center; }
-    p.subtitle { font-size: 0.95rem; color: #d1d5db; max-width: 600px; line-height: 1.6; margin-bottom: 40px; text-align: center; }
+    .page-container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 120px 20px 60px 20px; }
+    h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; text-align: center; }
+    p.subtitle { font-size: 0.95rem; color: #d1d5db; max-width: 650px; line-height: 1.6; margin-bottom: 40px; text-align: center; }
 
-    .tutorial-card { background: rgba(15, 15, 15, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); padding: 30px; margin-bottom: 30px; text-align: left; width: 100%; max-width: 800px; border-radius: 4px; }
-    .tutorial-card h2 { font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; color: #ffffff; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; }
-    .tutorial-card ol { margin-left: 20px; color: #cccccc; font-size: 0.9rem; line-height: 1.8; margin-bottom: 20px; }
+    .section-title {
+      width: 100%; max-width: 1100px; font-size: 1.2rem; letter-spacing: 2px; text-transform: uppercase;
+      color: #ffcc00; margin: 30px 0 15px 0; border-bottom: 1px solid rgba(255, 204, 0, 0.3); padding-bottom: 8px;
+    }
 
-    .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; background: #000; border: 1px solid rgba(255, 255, 255, 0.2); margin-top: 15px; }
-    .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    .video-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;
+      width: 100%; max-width: 1100px; margin-bottom: 30px;
+    }
 
-    .btn-back { color: #888888; text-decoration: none; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 25px; }
+    .video-card {
+      background: rgba(10, 10, 10, 0.85); border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px); border-radius: 4px; overflow: hidden; display: flex; flex-direction: column;
+    }
+
+    .video-wrapper {
+      position: relative; padding-bottom: 56.25%; height: 0; background: #000;
+    }
+    .video-wrapper iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+
+    .video-info { padding: 20px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .video-info h3 { font-size: 1rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; color: #ffffff; }
+    .video-info p { font-size: 0.82rem; color: #aaaaaa; line-height: 1.5; margin-bottom: 12px; }
+
+    .badge-protocol {
+      display: inline-block; font-size: 0.7rem; font-weight: 700; padding: 4px 8px;
+      border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; align-self: flex-start;
+    }
+    .badge-udp { background: rgba(0, 150, 255, 0.2); color: #0096ff; border: 1px solid rgba(0, 150, 255, 0.4); }
+    .badge-v2ray { background: rgba(255, 0, 100, 0.2); color: #ff0064; border: 1px solid rgba(255, 0, 100, 0.4); }
+    .badge-file { background: rgba(0, 230, 118, 0.2); color: #00e676; border: 1px solid rgba(0, 230, 118, 0.4); }
+    .badge-free { background: rgba(255, 204, 0, 0.2); color: #ffcc00; border: 1px solid rgba(255, 204, 0, 0.4); }
+
+    .btn-back { color: #888888; text-decoration: none; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 30px; }
     .btn-back:hover { color: #ffffff; }
-    footer { padding: 40px 20px; text-align: center; font-size: 0.75rem; color: #777777; width: 100%; }
 
+    footer { padding: 40px 20px; text-align: center; font-size: 0.75rem; color: #777777; width: 100%; }
     @media (max-width: 600px) { nav { display: none; } h1 { font-size: 1.8rem; } }
   </style>
 </head>
@@ -57,36 +85,100 @@
   </header>
 
   <div class="page-container">
-    <h1>VPN SETUP TUTORIALS</h1>
-    <p class="subtitle">Watch video guides and follow step-by-step instructions to configure your VPN application.</p>
+    <h1>SETUP & CONFIGURATION TUTORIALS</h1>
+    <p class="subtitle">Step-by-step video guides for installing client apps, setting up premium credentials, and accessing free backup VPN solutions.</p>
 
-    <!-- Guide 1: Exotic Tunnel / Fast VIP -->
-    <div class="tutorial-card">
-      <h2>1. Setting Up Exotic Tunnel & Exotic Fast VIP</h2>
-      <ol>
-        <li>Launch the app and open the side menu.</li>
-        <li>Select <strong>Account Credentials</strong> and enter your Username & Password.</li>
-        <li>Select an active server location and tap <strong>CONNECT</strong>.</li>
-      </ol>
-      
-      <div class="video-wrapper">
-        <!-- Paste Google Drive Video File ID below -->
-        <iframe src="https://drive.google.com/file/d/YOUR_DRIVE_VIDEO_ID_1/preview" allow="autoplay"></iframe>
+    <!-- SECTION 1: EXOTIC TUNNEL -->
+    <div class="section-title">1. EXOTIC TUNNEL TUTORIALS</div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="Exotic Tunnel Installation" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div>
+            <h3>Exotic Tunnel — Installation Guide</h3>
+            <p>How to download, install, and grant permissions for Exotic Tunnel directly from the Play Store.</p>
+          </div>
+          <span class="badge-protocol badge-udp">UDP Protocol Only</span>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="Exotic Tunnel Account Setup" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div>
+            <h3>Exotic Tunnel — Account Configuration</h3>
+            <p>Step-by-step setup to enter your purchased premium account username and password inside the app.</p>
+          </div>
+          <span class="badge-protocol badge-udp">UDP Protocol Only</span>
+        </div>
       </div>
     </div>
 
-    <!-- Guide 2: HTTP Custom -->
-    <div class="tutorial-card">
-      <h2>2. Setting Up HTTP Custom</h2>
-      <ol>
-        <li>Open HTTP Custom and tap the <strong>+ (Plus)</strong> floating button.</li>
-        <li>Select <strong>Open Config</strong> and import your downloaded `.hc` file.</li>
-        <li>Check <strong>Use Payload / SSH</strong> and tap <strong>CONNECT</strong>.</li>
-      </ol>
+    <!-- SECTION 2: EXOTIC FAST VIP -->
+    <div class="section-title">2. EXOTIC FAST VIP TUTORIALS</div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="Exotic Fast VIP Installation" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div>
+            <h3>Exotic Fast VIP — Installation Guide</h3>
+            <p>Direct APK installation guide for Exotic Fast VIP on Android devices.</p>
+          </div>
+          <span class="badge-protocol badge-v2ray">Supports UDP & V2Ray</span>
+        </div>
+      </div>
 
-      <div class="video-wrapper">
-        <!-- Paste Google Drive Video File ID below -->
-        <iframe src="https://drive.google.com/file/d/YOUR_DRIVE_VIDEO_ID_2/preview" allow="autoplay"></iframe>
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="Exotic Fast VIP Setup" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div>
+            <h3>Exotic Fast VIP — Account Setup & UltraCrazy Speeds</h3>
+            <p>Configure UDP and V2Ray protocols. Experience UltraCrazy high-speed routing with V2Ray configuration.</p>
+          </div>
+          <span class="badge-protocol badge-v2ray">🔥 UltraCrazy V2Ray Speeds</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: HTTP CUSTOM -->
+    <div class="section-title">3. HTTP CUSTOM TUTORIALS</div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="HTTP Custom Setup" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div>
+            <h3>HTTP Custom — Installation & File Import</h3>
+            <p>How to install HTTP Custom and import configuration payload files (`.hc`) for immediate connection.</p>
+          </div>
+          <span class="badge-protocol badge-file">File Payload Import</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: FREE BACKUP VPNS -->
+    <div class="section-title">4. FREE ALTERNATIVE VPNS (BACKUP OPTIONS)</div>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_HERE" title="Free VPN Alternatives" allowfullscreen></iframe>
+        </div>
+        <div class="video-info">
+          <div>
+            <h3>Free VPN Options — Setup Guide</h3>
+            <p>Alternative free VPN apps and configurations to keep you connected if you haven't purchased premium access yet.</p>
+          </div>
+          <span class="badge-protocol badge-free">100% Free Access</span>
+        </div>
       </div>
     </div>
 
