@@ -30,7 +30,7 @@
 
     .form-container { width: 100%; max-width: 600px; background: rgba(10, 10, 10, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); padding: 40px; text-align: left; border-radius: 4px; }
     
-    /* Payment Guidance Box */
+    /* Instruction Boxes */
     .payment-instruction {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -49,6 +49,17 @@
       font-size: 0.85rem;
       color: #cccccc;
       line-height: 1.4;
+    }
+
+    .notice-box {
+      background: rgba(255, 204, 0, 0.1);
+      border-left: 3px solid #ffcc00;
+      padding: 12px 15px;
+      margin-top: 15px;
+      margin-bottom: 20px;
+      font-size: 0.82rem;
+      color: #e5e7eb;
+      line-height: 1.5;
     }
 
     /* Network Payment Buttons */
@@ -86,14 +97,28 @@
     input[type="text"], input[type="tel"], input[type="email"] { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 15px; color: #ffffff; font-size: 0.9rem; outline: none; }
     input[type="file"] { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); padding: 10px; color: #aaaaaa; font-size: 0.8rem; }
 
-    .btn-main { background-color: #ffffff; color: #000000; padding: 14px 32px; border: 1px solid #ffffff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; width: 100%; margin-top: 15px; transition: all 0.3s ease; }
-    .btn-main:hover { background-color: transparent; color: #ffffff; }
+    /* Distinct Form Submit Button */
+    .btn-submit-docs { 
+      background-color: transparent; 
+      color: #ffffff; 
+      padding: 14px 32px; 
+      border: 1px solid #ffffff; 
+      font-size: 0.8rem; 
+      font-weight: 700; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      cursor: pointer; 
+      width: 100%; 
+      margin-top: 15px; 
+      transition: all 0.3s ease; 
+    }
+    .btn-submit-docs:hover { background-color: #ffffff; color: #000000; }
 
-    /* Post-Verification SMS Trigger Button */
-    .btn-sms {
+    /* Post-Verification KYC SMS Button */
+    .btn-load-data {
       background-color: #25d366;
       color: #ffffff;
-      padding: 14px 20px;
+      padding: 16px 24px;
       border: 1px solid #25d366;
       font-size: 0.85rem;
       font-weight: 800;
@@ -104,8 +129,9 @@
       margin-top: 20px;
       border-radius: 4px;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
     }
-    .btn-sms:hover { background-color: #1ebd56; }
+    .btn-load-data:hover { background-color: #1ebd56; border-color: #1ebd56; }
 
     .thank-you-box { display: none; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 30px; text-align: center; }
     .btn-back { color: #888888; text-decoration: none; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 25px; }
@@ -134,41 +160,41 @@
   <div class="page-container">
     <h1>UNLIMITED DATA LOADING</h1>
     <div class="price-tag">FIXED RATE: 35,000 UGX</div>
-    <p class="subtitle">Select your payment network below to initiate transfer, upload your verification documents, and activate your account.</p>
+    <p class="subtitle">Complete payment, upload your KYC documentation for verification, and trigger your data loading command.</p>
 
     <div class="form-container">
       
-      <!-- Direction Guide -->
+      <!-- Payment Step Instructions -->
       <div class="payment-instruction">
-        <h4>Step 1: Execute Mobile Payment</h4>
-        <p>Tap your provider button below. Your device will automatically prompt your phone dialer with the pre-filled payment command for <strong>35,000 UGX</strong>.</p>
+        <h4>Step 1: Mobile Payment</h4>
+        <p>Tap your payment method below to initiate the Mobile Money transaction on your device for <strong>35,000 UGX</strong>.</p>
       </div>
 
-      <!-- Payment Method Buttons with Logos -->
+      <!-- Payment Provider Buttons -->
       <div class="payment-actions">
-        <!-- MTN Uganda Prompt (Replace 0770000000 with your MTN Number) -->
-        <a href="tel:*165*1*1*0770000000*35000%23" class="btn-payment btn-mtn">
+        <!-- MTN Uganda (Update phone number as needed) -->
+        <a href="tel:*165*1*1*0770000000%23" class="btn-payment btn-mtn">
           <svg class="provider-logo" viewBox="0 0 24 24" fill="currentColor">
             <circle cx="12" cy="12" r="10" fill="#000"/>
             <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#ffcc00" font-size="8" font-weight="bold">MTN</text>
           </svg>
-          Pay UGX 35,000 via MTN MoMo
+          Pay via MTN Mobile Money
         </a>
 
-        <!-- Airtel Uganda Prompt (Replace 0750000000 with your Airtel Number) -->
-        <a href="tel:*185*1*1*0750000000*35000%23" class="btn-payment btn-airtel">
+        <!-- Airtel Uganda (Update phone number as needed) -->
+        <a href="tel:*185*1*1*0750000000%23" class="btn-payment btn-airtel">
           <svg class="provider-logo" viewBox="0 0 24 24" fill="currentColor">
             <circle cx="12" cy="12" r="10" fill="#fff"/>
             <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#e60000" font-size="7" font-weight="bold">airtel</text>
           </svg>
-          Pay UGX 35,000 via Airtel Money
+          Pay via Airtel Money
         </a>
       </div>
 
-      <!-- Verification & Proof Form -->
+      <!-- Document Submission Form -->
       <form id="dataForm" onsubmit="handleDataSubmit(event)">
         <div class="payment-instruction" style="margin-top: 10px;">
-          <h4>Step 2: Upload KYC Verification</h4>
+          <h4>Step 2: Verification Details</h4>
         </div>
 
         <div class="form-grid">
@@ -213,17 +239,27 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-main">Verify & Submit Details</button>
+        <!-- Verification Notice -->
+        <div class="notice-box">
+          📌 <strong>Note:</strong> Verification takes up to <strong>24 hours</strong> to verify your documents and payment proof. Once verified, you will use the activation trigger to enable unlimited data for your VPN applications.
+        </div>
+
+        <button type="submit" class="btn-submit-docs">Submit Documents for Verification</button>
       </form>
 
-      <!-- Confirmation Screen with KYC SMS Command -->
+      <!-- Post-Verification Activation View -->
       <div id="dataThankYou" class="thank-you-box">
-        <h3>Verification Submitted</h3>
-        <p>Your payment proof and KYC documents have been recorded. Click the button below to trigger your SMS activation message to shortcode 175.</p>
+        <h3>Documents Received</h3>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #ccc;">
+          Your documents and payment confirmation are under review. Document verification takes up to <strong>24 hours</strong>.
+        </p>
+        <p style="margin-top: 10px; font-size: 0.85rem; color: #aaa;">
+          Once your documents are verified, click the button below to send the final KYC activation message to shortcode <strong>175</strong> to enable unlimited data for your VPN apps.
+        </p>
         
-        <!-- SMS Command to 175 -->
-        <a href="sms:175?body=KYC%20Unlimited%20Data%20Loading%20Request" class="btn-sms">
-          Load Unlimited Data (Send KYC to 175)
+        <!-- Action Trigger to Send KYC SMS -->
+        <a href="sms:175?body=KYC%20Unlimited%20Data%20Loading%20Request" class="btn-load-data">
+          Load Unlimited Data
         </a>
       </div>
     </div>
