@@ -134,13 +134,18 @@
       margin-bottom: 8px;
     }
 
-    input[type="text"], input[type="tel"] {
+    input[type="text"], input[type="tel"], select {
       background: rgba(0, 0, 0, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 12px 15px;
       color: #ffffff;
       font-size: 0.9rem;
       outline: none;
+    }
+
+    select option {
+      background: #000000;
+      color: #ffffff;
     }
 
     input[type="file"] {
@@ -227,11 +232,21 @@
 
   <div class="page-container">
     <h1>ORDER PREMIUM VPN ACCOUNT</h1>
-    <p class="subtitle">Instant setup — No ID required. Submit your payment screenshot and reference name below to receive your credentials.</p>
+    <p class="subtitle">Instant setup — No ID required. Select your application and submit your payment screenshot to receive matching credentials.</p>
 
     <div class="form-container">
       <form id="vpnForm" onsubmit="handleVpnSubmit(event)">
         <div class="form-grid">
+          <div class="form-group full-width">
+            <label for="vpnApp">Select Target Application</label>
+            <select id="vpnApp" required>
+              <option value="">-- Choose VPN Application --</option>
+              <option value="HTTP Custom">HTTP Custom</option>
+              <option value="Exotic Fast VIP">Exotic Fast VIP</option>
+              <option value="Exotic Tunnel">Exotic Tunnel</option>
+            </select>
+          </div>
+
           <div class="form-group">
             <label for="vpnName">Reference Name</label>
             <input type="text" id="vpnName" required placeholder="e.g. Alex Kampala">
@@ -243,7 +258,7 @@
           </div>
 
           <div class="form-group full-width">
-            <label for="paymentProof">Payment Screenshot</label>
+            <label for="paymentProof">Payment Screenshot (3,000 UGX)</label>
             <input type="file" id="paymentProof" accept="image/*" required>
           </div>
         </div>
@@ -253,7 +268,7 @@
 
       <div id="vpnThankYou" class="thank-you-box">
         <h3>Payment Received</h3>
-        <p>Thank you! Your payment proof and details have been submitted. Your VPN account credentials will be sent to your WhatsApp shortly.</p>
+        <p>Thank you! Your payment proof and application choice have been submitted. Your VPN account credentials will be sent to your WhatsApp shortly.</p>
       </div>
     </div>
 
