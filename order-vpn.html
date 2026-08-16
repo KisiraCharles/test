@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Order Premium VPN — ULTRA CONNECT</title>
+  <title>Order Premium VPN Account — ULTRA CONNECT</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
     body {
@@ -22,28 +22,53 @@
     nav a { color: #aaaaaa; text-decoration: none; margin-left: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; transition: color 0.3s; }
     nav a:hover { color: #ffffff; }
 
-    .page-container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 140px 20px 60px 20px; }
-    h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 15px; text-align: center; }
+    /* Premium Price Marquee Banner */
+    .price-marquee-container {
+      width: 100%;
+      background: rgba(37, 211, 102, 0.15);
+      border-bottom: 1px solid rgba(37, 211, 102, 0.3);
+      color: #25d366;
+      padding: 10px 0;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-top: 75px;
+    }
+
+    .page-container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px 60px 20px; }
+    h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; text-align: center; }
     p.subtitle { font-size: 0.95rem; color: #d1d5db; max-width: 600px; line-height: 1.6; margin-bottom: 30px; text-align: center; }
 
     .form-container { width: 100%; max-width: 600px; background: rgba(10, 10, 10, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); padding: 40px; text-align: left; border-radius: 4px; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .form-group { display: flex; flex-direction: column; margin-bottom: 15px; }
-    .form-group.full-width { grid-column: span 2; }
-
+    
+    .form-group { display: flex; flex-direction: column; margin-bottom: 20px; }
     label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: #aaaaaa; margin-bottom: 8px; }
-    input[type="text"], input[type="tel"] { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 15px; color: #ffffff; font-size: 0.9rem; outline: none; }
-    input[type="file"] { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); padding: 10px; color: #aaaaaa; font-size: 0.8rem; }
+    input[type="text"], input[type="tel"], select { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 15px; color: #ffffff; font-size: 0.9rem; outline: none; }
+    select option { background: #000; color: #fff; }
 
-    .btn-main { background-color: #ffffff; color: #000000; padding: 14px 32px; border: 1px solid #ffffff; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; width: 100%; margin-top: 15px; transition: all 0.3s ease; }
-    .btn-main:hover { background-color: transparent; color: #ffffff; }
+    .btn-submit { 
+      background-color: #25d366; 
+      color: #ffffff; 
+      padding: 14px 32px; 
+      border: 1px solid #25d366; 
+      font-size: 0.85rem; 
+      font-weight: 800; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      cursor: pointer; 
+      width: 100%; 
+      margin-top: 10px; 
+      transition: all 0.3s ease; 
+    }
+    .btn-submit:hover { background-color: #1ebd56; }
 
-    .thank-you-box { display: none; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.2); padding: 30px; text-align: center; }
     .btn-back { color: #888888; text-decoration: none; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 25px; }
     .btn-back:hover { color: #ffffff; }
+
     footer { padding: 40px 20px; text-align: center; font-size: 0.75rem; color: #777777; width: 100%; }
 
-    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } .form-group.full-width { grid-column: span 1; } nav { display: none; } }
+    @media (max-width: 600px) { nav { display: none; } }
   </style>
 </head>
 <body>
@@ -62,51 +87,48 @@
     </nav>
   </header>
 
+  <!-- Running Price Marquee -->
+  <div class="price-marquee-container">
+    <marquee scrollamount="6" behavior="scroll" direction="left">
+      🔥 PREMIUM ACCOUNT PRICE: 3,000 UGX ONLY — GET UNLIMITED HIGH-SPEED ACCESS TODAY!
+    </marquee>
+  </div>
+
   <div class="page-container">
     <h1>ORDER PREMIUM VPN ACCOUNT</h1>
-    <p class="subtitle">Instant setup — No ID required. Submit your payment screenshot and reference name below to receive your credentials.</p>
+    <p class="subtitle">Select your preferred tunneling application and submit your request to receive your login credentials.</p>
 
     <div class="form-container">
-      <form id="vpnForm" onsubmit="handleVpnSubmit(event)">
-        <div class="form-grid">
-          <div class="form-group">
-            <label for="vpnName">Reference Name</label>
-            <input type="text" id="vpnName" required placeholder="e.g. Alex Kampala">
-          </div>
-
-          <div class="form-group">
-            <label for="vpnWhatsapp">WhatsApp Number</label>
-            <input type="tel" id="vpnWhatsapp" required placeholder="+256 700 000 000">
-          </div>
-
-          <div class="form-group full-width">
-            <label for="paymentProof">Payment Screenshot</label>
-            <input type="file" id="paymentProof" accept="image/*" required>
-          </div>
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="appName">Select Application</label>
+          <select id="appName" required>
+            <option value="">-- Choose App --</option>
+            <option value="HTTP Custom">HTTP Custom</option>
+            <option value="Exotic Fast VIP">Exotic Fast VIP</option>
+          </select>
         </div>
 
-        <button type="submit" class="btn-main">Submit Payment Proof</button>
-      </form>
+        <div class="form-group">
+          <label for="userName">Full Name</label>
+          <input type="text" id="userName" required placeholder="e.g. John Okello">
+        </div>
 
-      <div id="vpnThankYou" class="thank-you-box">
-        <h3>Payment Received</h3>
-        <p>Thank you! Your payment proof and details have been submitted. Your VPN account credentials will be sent to your WhatsApp shortly.</p>
-      </div>
+        <div class="form-group">
+          <label for="userPhone">WhatsApp Number</label>
+          <input type="tel" id="userPhone" required placeholder="+256 700 000 000">
+        </div>
+
+        <button type="submit" class="btn-submit">Order Premium Account — 3,000 UGX</button>
+      </form>
     </div>
 
-    <a href="index.html" class="btn-back">← Back to Portal</a>
+    <a href="index.html" class="btn-back">← Back to Home</a>
 
     <footer>
       <p>© 2026 ULTRA CONNECT UGANDA. ALL RIGHTS RESERVED.</p>
     </footer>
   </div>
 
-  <script>
-    function handleVpnSubmit(event) {
-      event.preventDefault();
-      document.getElementById('vpnForm').style.display = 'none';
-      document.getElementById('vpnThankYou').style.display = 'block';
-    }
-  </script>
 </body>
 </html>
