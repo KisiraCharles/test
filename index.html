@@ -1,148 +1,355 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORBITLINK - High Speed Satellite Internet</title>
-    <!-- Tailwind CSS via CDN -->
-    <script src="https://jsdelivr.net"></script>
-    <style>
-        /* Custom font pairing for a sleek tech feel */
-        @import url('https://googleapis.com');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ULTRA CONNECT — Premium Unlimited VPN & Data</title>
+  <style>
+    /* Starlink Dark Theme Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    /* Fixed Minimalist Navigation */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .badge-ug {
+      font-size: 0.75rem;
+      background: #222;
+      color: #aaa;
+      padding: 4px 8px;
+      border-radius: 2px;
+      margin-left: 8px;
+      border: 1px solid #333;
+    }
+
+    nav a {
+      color: #888888;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    /* Section Layouts */
+    .hero-section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 120px 20px 60px 20px;
+      border-bottom: 1px solid #141414;
+      position: relative;
+    }
+
+    .hero-1 { background: radial-gradient(circle at center, #111827 0%, #000000 100%); }
+    .hero-2 { background: radial-gradient(circle at center, #050b14 0%, #000000 100%); }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    p.subtitle {
+      font-size: 1rem;
+      color: #9ca3af;
+      max-width: 650px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    /* Button Styles */
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .btn-main {
+      background-color: #ffffff;
+      color: #000000;
+      padding: 14px 32px;
+      border: 1px solid #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-main:hover {
+      background-color: transparent;
+      color: #ffffff;
+    }
+
+    .btn-sub {
+      background-color: transparent;
+      color: #ffffff;
+      padding: 14px 32px;
+      border: 1px solid #333333;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-sub:hover {
+      border-color: #ffffff;
+    }
+
+    /* Verification Form Card */
+    .form-container {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(15, 15, 15, 0.8);
+      border: 1px solid #222222;
+      padding: 40px;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #999999;
+      margin-bottom: 8px;
+    }
+
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"] {
+      background: #000000;
+      border: 1px solid #333333;
+      padding: 12px 15px;
+      color: #ffffff;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    input[type="text"]:focus,
+    input[type="tel"]:focus,
+    input[type="email"]:focus {
+      border-color: #ffffff;
+    }
+
+    input[type="file"] {
+      background: #000000;
+      border: 1px solid #333333;
+      padding: 10px;
+      color: #888888;
+      font-size: 0.8rem;
+    }
+
+    /* Success Message Box */
+    .thank-you-box {
+      display: none;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #333333;
+      padding: 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .thank-you-box h3 {
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .thank-you-box p {
+      font-size: 0.9rem;
+      color: #aaaaaa;
+      line-height: 1.5;
+    }
+
+    footer {
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #555555;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 600px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .form-group.full-width { grid-column: span 1; }
+      nav { display: none; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
-<body class="text-white antialiased overflow-x-hidden">
+<body>
 
-    <!-- Navigation Bar -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-md border-b border-white/5 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#" class="text-xl font-extrabold tracking-widest text-white uppercase">
-                Orbitlink
-            </a>
-            
-            <!-- Desktop Links -->
-            <div class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-neutral-300">
-                <a href="#residential" class="hover:text-white transition-colors">Residential</a>
-                <a href="#business" class="hover:text-white transition-colors">Business</a>
-                <a href="#roam" class="hover:text-white transition-colors">Roam</a>
-                <a href="#specs" class="hover:text-white transition-colors">Technology</a>
-            </div>
-
-            <!-- CTA/Account -->
-            <div>
-                <a href="#order" class="text-xs font-semibold uppercase tracking-wider border border-white px-4 py-2 hover:bg-white hover:text-black transition-all duration-300 rounded-sm">
-                    Shop Now
-                </a>
-            </div>
-        </div>
+  <!-- Minimal Header -->
+  <header>
+    <div>
+      <a href="#" class="logo">ULTRA CONNECT</a>
+      <span class="badge-ug">UGANDA 🇺🇬</span>
+    </div>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#verify">Verification</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <header class="relative h-screen w-full flex flex-col justify-end pb-24 items-center bg-radial from-neutral-900 to-black">
-        <!-- Visual Backdrop (Replace with high-res space image or video background loop) -->
-        <div class="absolute inset-0 opacity-40 bg-[url('https://unsplash.com')] bg-cover bg-center mix-blend-screen"></div>
-        
-        <!-- Bottom-gradient fade -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+  <!-- Hero Section 1: Service Overview -->
+  <section class="hero-section hero-1" id="services">
+    <h1>UNLIMITED DATA & PREMIUM VPN</h1>
+    <p class="subtitle">Providing high-speed unlimited data loading and premium VPN server access built for maximum speed, security, and unrestricted access across Uganda.</p>
+    
+    <div class="btn-group">
+      <a href="#verify" class="btn-main">Get Account Access</a>
+      <a href="#contact" class="btn-sub">Direct Channels</a>
+    </div>
+  </section>
 
-        <!-- Hero Content -->
-        <div class="relative z-10 text-center px-4 max-w-2xl mx-auto space-y-6">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight uppercase">
-                High-Speed Internet <br>
-                <span class="text-neutral-400">Anywhere On Earth</span>
-            </h1>
-            <p class="text-sm md:text-base text-neutral-400 max-w-md mx-auto font-light leading-relaxed">
-                Stream, video call, and game from the most remote locations with low-latency satellite connectivity.
-            </p>
-            
-            <!-- Order Form -->
-            <form id="order" class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-                <input type="text" placeholder="SERVICE ADDRESS" class="w-full bg-black/60 border border-neutral-700 text-white text-xs font-semibold tracking-wider px-4 py-3.5 focus:outline-none focus:border-white uppercase placeholder-neutral-500 rounded-sm transition-colors">
-                <button type="submit" class="w-full sm:w-auto whitespace-nowrap bg-white text-black text-xs font-extrabold tracking-widest px-8 py-3.5 hover:bg-neutral-200 transition-colors uppercase rounded-sm">
-                    Check Availability
-                </button>
-            </form>
+  <!-- Hero Section 2: Registration & Form -->
+  <section class="hero-section hero-2" id="verify">
+    <h1>CLIENT REGISTRATION</h1>
+    <p class="subtitle">Submit your details below to set up your account profile and request custom unlimited VPN loading.</p>
+
+    <div class="form-container">
+      <form id="clientForm" onsubmit="handleFormSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" required placeholder="e.g. John">
+          </div>
+          
+          <div class="form-group">
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" required placeholder="e.g. Okello">
+          </div>
+
+          <div class="form-group">
+            <label for="contact">Phone Contact</label>
+            <input type="tel" id="contact" required placeholder="+256 700 000 000">
+          </div>
+
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp Number</label>
+            <input type="tel" id="whatsapp" required placeholder="+256 700 000 000">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" required placeholder="name@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="idFront">Front View of ID</label>
+            <input type="file" id="idFront" accept="image/*" required>
+          </div>
+
+          <div class="form-group">
+            <label for="profilePic">Profile Picture</label>
+            <input type="file" id="profilePic" accept="image/*" required>
+          </div>
         </div>
-    </header>
 
-    <!-- Service Tiers Section -->
-    <section id="residential" class="py-32 px-6 max-w-7xl mx-auto border-t border-neutral-900">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="space-y-6">
-                <span class="text-xs font-bold tracking-widest text-neutral-500 uppercase">Connectivity</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tight">Engineered for the Future</h2>
-                <p class="text-neutral-400 leading-relaxed font-light">
-                    Orbitlink leverages a dense constellation of low Earth orbit satellites to deliver reliable speeds that traditional satellite internet providers simply cannot match. Perfect for remote homes, offices, and travelers.
-                </p>
-                <div class="pt-4 grid grid-cols-2 gap-6 border-t border-neutral-900">
-                    <div>
-                        <div class="text-2xl font-bold tracking-tight">220+ Mbps</div>
-                        <div class="text-xs text-neutral-500 uppercase tracking-wider mt-1">Download Speed</div>
-                    </div>
-                    <div>
-                        <div class="text-2xl font-bold tracking-tight">&lt; 25 ms</div>
-                        <div class="text-xs text-neutral-500 uppercase tracking-wider mt-1">Latency Rate</div>
-                    </div>
-                </div>
-            </div>
-            <!-- Product Showcase Image Placeholders -->
-            <div class="aspect-video bg-neutral-900 rounded-sm border border-neutral-800 overflow-hidden relative group">
-                <div class="absolute inset-0 bg-[url('https://unsplash.com')] bg-cover bg-center opacity-60 group-hover:scale-105 transition-transform duration-700"></div>
-            </div>
-        </div>
-    </section>
+        <button type="submit" class="btn-main" style="width: 100%; margin-top: 15px;">Submit Credentials</button>
+      </form>
 
-    <!-- Hardware Specifications Section -->
-    <section id="specs" class="bg-neutral-950 py-32 px-6 border-y border-neutral-900">
-        <div class="max-w-7xl mx-auto">
-            <div class="max-w-xl mb-16 space-y-4">
-                <span class="text-xs font-bold tracking-widest text-neutral-500 uppercase">The Kit</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold uppercase tracking-tight">Simple Self-Installation</h2>
-                <p class="text-neutral-400 font-light">Your package arrives with everything required to get online in minutes, engineered strictly to withstand extreme weather environments.</p>
-            </div>
+      <!-- Confirmation / Appreciation Message -->
+      <div id="thankYouBox" class="thank-you-box">
+        <h3>Submission Received</h3>
+        <p>Thank you for submitting your verification details. We appreciate your interest in our premium VPN services. Our team will review your account information and reach out shortly via WhatsApp or Email with setup details.</p>
+      </div>
+    </div>
+  </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Spec Card 1 -->
-                <div class="bg-black p-8 border border-neutral-900 rounded-sm space-y-4">
-                    <div class="h-1 bg-white w-12"></div>
-                    <h3 class="text-lg font-bold uppercase tracking-tight">Weather Proof</h3>
-                    <p class="text-neutral-400 text-sm font-light leading-relaxed">Melts snow, operates seamlessly in torrential downpours, and resists gale-force winds.</p>
-                </div>
-                <!-- Spec Card 2 -->
-                <div class="bg-black p-8 border border-neutral-900 rounded-sm space-y-4">
-                    <div class="h-1 bg-neutral-700 w-12"></div>
-                    <h3 class="text-lg font-bold uppercase tracking-tight">Phased Array</h3>
-                    <p class="text-neutral-400 text-sm font-light leading-relaxed">Electronic beamforming orientation ensures dynamic field-of-view lock on satellites.</p>
-                </div>
-                <!-- Spec Card 3 -->
-                <div class="bg-black p-8 border border-neutral-900 rounded-sm space-y-4">
-                    <div class="h-1 bg-neutral-700 w-12"></div>
-                    <h3 class="text-lg font-bold uppercase tracking-tight">Wi-Fi 6 Router</h3>
-                    <p class="text-neutral-400 text-sm font-light leading-relaxed">Includes dual-band high-range hardware optimized for handling dozens of client devices.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Hero Section 3: Contact & Links -->
+  <section class="hero-section hero-1" id="contact">
+    <h1>DIRECT CONTACT CHANNELS</h1>
+    <p class="subtitle">Need quick activation or technical assistance? Reach out to us directly through any of our support channels.</p>
+    
+    <div class="btn-group">
+      <!-- REPLACE href VALUES WITH YOUR OFFICIAL LINKS LATER -->
+      <a href="https://wa.me/256700000000" target="_blank" class="btn-main">WhatsApp Support</a>
+      <a href="https://t.me/YourTelegramUsername" target="_blank" class="btn-sub">Telegram Channel</a>
+      <a href="mailto:info@yourdomain.com" class="btn-sub">Email Support</a>
+    </div>
 
-    <!-- Footer -->
-    <footer class="bg-black text-neutral-600 text-xs py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex flex-wrap justify-center gap-6 font-semibold uppercase tracking-wider text-neutral-500">
-                <a href="#" class="hover:text-white transition-colors">Privacy</a>
-                <a href="#" class="hover:text-white transition-colors">Terms</a>
-                <a href="#" class="hover:text-white transition-colors">Support</a>
-                <a href="#" class="hover:text-white transition-colors">Careers</a>
-            </div>
-            <div>
-                &copy; 2026 Orbitlink Inc. All rights reserved.
-            </div>
-        </div>
+    <footer>
+      <p>© 2026 ULTRA CONNECT UGANDA. ALL RIGHTS RESERVED.</p>
     </footer>
+  </section>
 
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      // Hide form and show thank you message
+      document.getElementById('clientForm').style.display = 'none';
+      document.getElementById('thankYouBox').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
