@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ULTRA CONNECT — Premium Unlimited VPN & Data</title>
   <style>
-    /* Starlink Dark Theme Reset */
+    /* Starlink Dark Theme Reset & Space Background */
     * {
       margin: 0;
       padding: 0;
@@ -17,6 +17,13 @@
       background-color: #000000;
       color: #ffffff;
       overflow-x: hidden;
+      background-image: 
+        linear-gradient(180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.85) 100%),
+        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
 
     /* Fixed Minimalist Navigation */
@@ -31,7 +38,7 @@
       z-index: 1000;
       background: rgba(0, 0, 0, 0.85);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid #1a1a1a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .logo {
@@ -45,27 +52,25 @@
 
     .badge-ug {
       font-size: 0.75rem;
-      background: #222;
-      color: #aaa;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ccc;
       padding: 4px 8px;
       border-radius: 2px;
       margin-left: 8px;
-      border: 1px solid #333;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     nav a {
-      color: #888888;
+      color: #aaaaaa;
       text-decoration: none;
-      margin-left: 25px;
-      font-size: 0.85rem;
+      margin-left: 20px;
+      font-size: 0.8rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       transition: color 0.3s;
     }
 
-    nav a:hover {
-      color: #ffffff;
-    }
+    nav a:hover { color: #ffffff; }
 
     /* Section Layouts */
     .hero-section {
@@ -76,15 +81,11 @@
       align-items: center;
       text-align: center;
       padding: 120px 20px 60px 20px;
-      border-bottom: 1px solid #141414;
       position: relative;
     }
 
-    .hero-1 { background: radial-gradient(circle at center, #111827 0%, #000000 100%); }
-    .hero-2 { background: radial-gradient(circle at center, #050b14 0%, #000000 100%); }
-
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -93,13 +94,13 @@
 
     p.subtitle {
       font-size: 1rem;
-      color: #9ca3af;
+      color: #d1d5db;
       max-width: 650px;
       line-height: 1.6;
       margin-bottom: 30px;
     }
 
-    /* Button Styles */
+    /* Buttons */
     .btn-group {
       display: flex;
       gap: 15px;
@@ -122,16 +123,13 @@
       transition: all 0.3s ease;
     }
 
-    .btn-main:hover {
-      background-color: transparent;
-      color: #ffffff;
-    }
+    .btn-main:hover { background-color: transparent; color: #ffffff; }
 
     .btn-sub {
-      background-color: transparent;
+      background-color: rgba(0, 0, 0, 0.4);
       color: #ffffff;
       padding: 14px 32px;
-      border: 1px solid #333333;
+      border: 1px solid rgba(255, 255, 255, 0.4);
       font-size: 0.8rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -139,109 +137,131 @@
       text-decoration: none;
       cursor: pointer;
       transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
     }
 
-    .btn-sub:hover {
-      border-color: #ffffff;
-    }
+    .btn-sub:hover { border-color: #ffffff; background-color: #ffffff; color: #000000; }
 
-    /* Verification Form Card */
+    /* Forms & Cards */
     .form-container {
       width: 100%;
       max-width: 600px;
-      background: rgba(15, 15, 15, 0.8);
-      border: 1px solid #222222;
+      background: rgba(10, 10, 10, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(15px);
       padding: 40px;
       text-align: left;
       margin-top: 20px;
+      border-radius: 4px;
     }
 
-    .form-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 20px;
-    }
-
-    .form-group.full-width {
-      grid-column: span 2;
-    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; margin-bottom: 15px; }
+    .form-group.full-width { grid-column: span 2; }
 
     label {
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: #999999;
+      color: #aaaaaa;
       margin-bottom: 8px;
     }
 
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"] {
-      background: #000000;
-      border: 1px solid #333333;
+    input[type="text"], input[type="tel"], input[type="email"] {
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 12px 15px;
       color: #ffffff;
       font-size: 0.9rem;
       outline: none;
-      transition: border-color 0.3s;
-    }
-
-    input[type="text"]:focus,
-    input[type="tel"]:focus,
-    input[type="email"]:focus {
-      border-color: #ffffff;
     }
 
     input[type="file"] {
-      background: #000000;
-      border: 1px solid #333333;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 10px;
-      color: #888888;
+      color: #aaaaaa;
       font-size: 0.8rem;
     }
 
-    /* Success Message Box */
-    .thank-you-box {
-      display: none;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid #333333;
-      padding: 30px;
-      text-align: center;
-      margin-top: 20px;
+    /* Supported Apps Grid */
+    .app-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+      margin-top: 30px;
     }
 
-    .thank-you-box h3 {
-      font-size: 1.2rem;
+    .app-card {
+      background: rgba(15, 15, 15, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 25px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .app-card h3 {
+      font-size: 1.1rem;
       letter-spacing: 1.5px;
       text-transform: uppercase;
       margin-bottom: 10px;
     }
 
-    .thank-you-box p {
-      font-size: 0.9rem;
-      color: #aaaaaa;
+    .app-card p {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-bottom: 20px;
       line-height: 1.5;
+    }
+
+    /* Tutorials Grid */
+    .tutorial-card {
+      background: rgba(20, 20, 20, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      margin-bottom: 20px;
+      text-align: left;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .tutorial-card h3 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .tutorial-card ol {
+      margin-left: 20px;
+      color: #ccc;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .thank-you-box {
+      display: none;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 30px;
+      text-align: center;
     }
 
     footer {
       padding: 40px 20px;
       text-align: center;
       font-size: 0.75rem;
-      color: #555555;
-      letter-spacing: 1px;
+      color: #777777;
     }
 
     @media (max-width: 600px) {
       .form-grid { grid-template-columns: 1fr; }
       .form-group.full-width { grid-column: span 1; }
       nav { display: none; }
-      h1 { font-size: 2rem; }
+      h1 { font-size: 1.8rem; }
     }
   </style>
 </head>
@@ -254,30 +274,92 @@
       <span class="badge-ug">UGANDA 🇺🇬</span>
     </div>
     <nav>
-      <a href="#services">Services</a>
-      <a href="#verify">Verification</a>
+      <a href="#apps">Apps</a>
+      <a href="#vpn-account">VPN Order</a>
+      <a href="#data-loading">Data Loading</a>
+      <a href="#tutorials">Tutorials</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Section 1: Service Overview -->
-  <section class="hero-section hero-1" id="services">
+  <!-- Hero Section 1: Overview -->
+  <section class="hero-section" id="services">
     <h1>UNLIMITED DATA & PREMIUM VPN</h1>
-    <p class="subtitle">Providing high-speed unlimited data loading and premium VPN server access built for maximum speed, security, and unrestricted access across Uganda.</p>
-    
+    <p class="subtitle">High-speed tunneling configurations and unlimited data loading for seamless, unrestricted access in Uganda.</p>
     <div class="btn-group">
-      <a href="#verify" class="btn-main">Get Account Access</a>
-      <a href="#contact" class="btn-sub">Direct Channels</a>
+      <a href="#vpn-account" class="btn-main">Get VPN Account</a>
+      <a href="#apps" class="btn-sub">Download Apps</a>
     </div>
   </section>
 
-  <!-- Hero Section 2: Registration & Form -->
-  <section class="hero-section hero-2" id="verify">
-    <h1>CLIENT REGISTRATION</h1>
-    <p class="subtitle">Submit your details below to set up your account profile and request custom unlimited VPN loading.</p>
+  <!-- Hero Section 2: Supported Apps & Downloads -->
+  <section class="hero-section" id="apps">
+    <h1>SUPPORTED APPLICATIONS</h1>
+    <p class="subtitle">Download the required application for your device below to begin setup.</p>
+    
+    <div class="app-grid">
+      <div class="app-card">
+        <h3>Exotic Tunnel</h3>
+        <p>Available directly on Google Play Store for easy installation and automated updates.</p>
+        <a href="https://play.google.com/store/search?q=exotic%20tunnel&c=apps" target="_blank" class="btn-sub" style="display:inline-block;">PlayStore Download</a>
+      </div>
+
+      <div class="app-card">
+        <h3>Exotic Fast VIP</h3>
+        <p>Premium VIP build. Download APK directly from our official Google Drive server.</p>
+        <!-- REPLACE LINK BELOW WITH YOUR GOOGLE DRIVE FILE LINK -->
+        <a href="https://drive.google.com" target="_blank" class="btn-main" style="display:inline-block;">Drive Download</a>
+      </div>
+
+      <div class="app-card">
+        <h3>HTTP Custom</h3>
+        <p>Popular custom tunneling client. Import configuration files for high-speed routing.</p>
+        <a href="https://play.google.com/store/search?q=http%20custom&c=apps" target="_blank" class="btn-sub" style="display:inline-block;">PlayStore Download</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section 3: Premium VPN Order Form (No ID Required) -->
+  <section class="hero-section" id="vpn-account">
+    <h1>ORDER PREMIUM VPN ACCOUNT</h1>
+    <p class="subtitle">Fast activation — No ID required. Provide your payment screenshot and reference name.</p>
 
     <div class="form-container">
-      <form id="clientForm" onsubmit="handleFormSubmit(event)">
+      <form id="vpnForm" onsubmit="handleVpnSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="vpnName">Reference Name</label>
+            <input type="text" id="vpnName" required placeholder="e.g. Alex Kampala">
+          </div>
+
+          <div class="form-group">
+            <label for="vpnWhatsapp">WhatsApp Number</label>
+            <input type="tel" id="vpnWhatsapp" required placeholder="+256 700 000 000">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="paymentProof">Payment Screenshot</label>
+            <input type="file" id="paymentProof" accept="image/*" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-main" style="width: 100%; margin-top: 15px;">Submit Payment Proof</button>
+      </form>
+
+      <div id="vpnThankYou" class="thank-you-box">
+        <h3>Payment Received</h3>
+        <p>Thank you! Your payment proof and reference details have been submitted. Your VPN account credentials will be sent to your WhatsApp shortly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero Section 4: Unlimited Data Loading Form (ID Required) -->
+  <section class="hero-section" id="data-loading">
+    <h1>UNLIMITED DATA LOADING</h1>
+    <p class="subtitle">Complete full identity registration to qualify for account data loading service.</p>
+
+    <div class="form-container">
+      <form id="dataForm" onsubmit="handleDataSubmit(event)">
         <div class="form-grid">
           <div class="form-group">
             <label for="firstName">First Name</label>
@@ -315,24 +397,49 @@
           </div>
         </div>
 
-        <button type="submit" class="btn-main" style="width: 100%; margin-top: 15px;">Submit Credentials</button>
+        <button type="submit" class="btn-main" style="width: 100%; margin-top: 15px;">Submit Registration</button>
       </form>
 
-      <!-- Confirmation / Appreciation Message -->
-      <div id="thankYouBox" class="thank-you-box">
-        <h3>Submission Received</h3>
-        <p>Thank you for submitting your verification details. We appreciate your interest in our premium VPN services. Our team will review your account information and reach out shortly via WhatsApp or Email with setup details.</p>
+      <div id="dataThankYou" class="thank-you-box">
+        <h3>Registration Received</h3>
+        <p>Thank you for submitting your verification details. We will review your credentials and contact you via WhatsApp to complete your data loading.</p>
       </div>
     </div>
   </section>
 
-  <!-- Hero Section 3: Contact & Links -->
-  <section class="hero-section hero-1" id="contact">
-    <h1>DIRECT CONTACT CHANNELS</h1>
-    <p class="subtitle">Need quick activation or technical assistance? Reach out to us directly through any of our support channels.</p>
+  <!-- Hero Section 5: VPN Setup Tutorials -->
+  <section class="hero-section" id="tutorials">
+    <h1>VPN SETUP TUTORIALS</h1>
+    <p class="subtitle">Follow these step-by-step guides to configure your VPN applications easily.</p>
+
+    <div class="tutorial-card">
+      <h3>1. Setting Up Exotic Tunnel & Exotic Fast VIP</h3>
+      <ol>
+        <li>Download and install the app from the link above.</li>
+        <li>Open the application and tap on <strong>Account / Credentials</strong> in the menu.</li>
+        <li>Enter the <strong>Username</strong> and <strong>Password</strong> sent to your WhatsApp.</li>
+        <li>Select your preferred server location and tap <strong>CONNECT</strong>.</li>
+      </ol>
+    </div>
+
+    <div class="tutorial-card">
+      <h3>2. Setting Up HTTP Custom</h3>
+      <ol>
+        <li>Download HTTP Custom from Google Play Store.</li>
+        <li>Download the configuration file (`.hc`) provided by our WhatsApp support team.</li>
+        <li>Open HTTP Custom, tap the <strong>+ (Plus)</strong> button, and select <strong>Open Config</strong>.</li>
+        <li>Choose the downloaded file, check <strong>Use Payload / SSH</strong>, and click <strong>CONNECT</strong>.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Hero Section 6: Contact Links -->
+  <section class="hero-section" id="contact">
+    <h1>DIRECT SUPPORT CHANNELS</h1>
+    <p class="subtitle">Questions or fast activation? Reach us through any channel below.</p>
     
     <div class="btn-group">
-      <!-- REPLACE href VALUES WITH YOUR OFFICIAL LINKS LATER -->
+      <!-- REPLACE href VALUES WITH YOUR LINKS -->
       <a href="https://wa.me/256700000000" target="_blank" class="btn-main">WhatsApp Support</a>
       <a href="https://t.me/YourTelegramUsername" target="_blank" class="btn-sub">Telegram Channel</a>
       <a href="mailto:info@yourdomain.com" class="btn-sub">Email Support</a>
@@ -344,11 +451,16 @@
   </section>
 
   <script>
-    function handleFormSubmit(event) {
+    function handleVpnSubmit(event) {
       event.preventDefault();
-      // Hide form and show thank you message
-      document.getElementById('clientForm').style.display = 'none';
-      document.getElementById('thankYouBox').style.display = 'block';
+      document.getElementById('vpnForm').style.display = 'none';
+      document.getElementById('vpnThankYou').style.display = 'block';
+    }
+
+    function handleDataSubmit(event) {
+      event.preventDefault();
+      document.getElementById('dataForm').style.display = 'none';
+      document.getElementById('dataThankYou').style.display = 'block';
     }
   </script>
 </body>
