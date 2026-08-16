@@ -36,7 +36,7 @@
       margin-top: 75px;
     }
 
-    .page-container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px 120px 20px; }
+    .page-container { min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 40px 20px 140px 20px; }
     h1 { font-size: 2.2rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; text-align: center; }
     
     .price-tag { background: #ffffff; color: #000000; font-weight: 800; font-size: 0.9rem; letter-spacing: 2px; padding: 6px 16px; text-transform: uppercase; margin-bottom: 15px; display: inline-block; }
@@ -146,16 +146,39 @@
     .btn-back { color: #888888; text-decoration: none; font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 25px; }
     .btn-back:hover { color: #ffffff; }
 
-    /* Fixed Centered Bottom Button for Direct KYC SMS to 175 */
-    .centered-kyc-btn {
+    /* Bottom Fixed Container for Button & Warning Marquee */
+    .fixed-bottom-bar {
       position: fixed;
-      bottom: 25px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 0;
+      left: 0;
+      width: 100%;
       z-index: 9999;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 15px;
+    }
+
+    .button-marquee {
+      width: 100%;
+      background: rgba(230, 0, 0, 0.2);
+      border-bottom: 1px solid rgba(230, 0, 0, 0.4);
+      color: #ff4d4d;
+      padding: 6px 0;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .centered-kyc-btn {
       background-color: #25d366;
       color: #ffffff;
-      padding: 14px 28px;
+      padding: 12px 28px;
       border-radius: 50px;
       font-size: 0.8rem;
       font-weight: 800;
@@ -172,7 +195,7 @@
     }
     .centered-kyc-btn:hover {
       background-color: #1ebd56;
-      transform: translateX(-50%) translateY(-3px);
+      transform: translateY(-2px);
       box-shadow: 0 6px 25px rgba(37, 211, 102, 0.7);
     }
 
@@ -182,7 +205,7 @@
       .form-grid { grid-template-columns: 1fr; } 
       .form-group.full-width { grid-column: span 1; } 
       nav { display: none; } 
-      .centered-kyc-btn { bottom: 15px; padding: 12px 20px; font-size: 0.72rem; }
+      .centered-kyc-btn { padding: 10px 20px; font-size: 0.72rem; }
     }
   </style>
 </head>
@@ -312,10 +335,17 @@
     </footer>
   </div>
 
-  <!-- Centered Floating Action Button triggering KYC message to 175 -->
-  <a href="sms:175?body=KYC%20Unlimited%20Data%20Loading%20Request" class="centered-kyc-btn">
-    💬 Load Unlimited Data Plan
-  </a>
+  <!-- Bottom Fixed Bar with Warning Marquee and Load Data Button -->
+  <div class="fixed-bottom-bar">
+    <div class="button-marquee">
+      <marquee scrollamount="5" behavior="scroll" direction="left">
+        ⚠️ CLICK THIS BUTTON ONLY IF YOU ARE VERIFIED AFTER 24 HOURS.
+      </marquee>
+    </div>
+    <a href="sms:175?body=KYC" class="centered-kyc-btn">
+      💬 Load Unlimited Data Plan
+    </a>
+  </div>
 
   <script>
     function handleDataSubmit(event) {
