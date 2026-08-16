@@ -30,7 +30,6 @@
 
     .form-container { width: 100%; max-width: 600px; background: rgba(10, 10, 10, 0.85); border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); padding: 40px; text-align: left; border-radius: 4px; }
     
-    /* Instruction Boxes */
     .payment-instruction {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -62,7 +61,6 @@
       line-height: 1.5;
     }
 
-    /* Network Payment Buttons */
     .payment-actions { display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
     
     .btn-payment {
@@ -88,7 +86,6 @@
 
     .provider-logo { width: 22px; height: 22px; }
 
-    /* Form Fields */
     .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .form-group { display: flex; flex-direction: column; margin-bottom: 15px; }
     .form-group.full-width { grid-column: span 2; }
@@ -97,7 +94,6 @@
     input[type="text"], input[type="tel"], input[type="email"] { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 15px; color: #ffffff; font-size: 0.9rem; outline: none; }
     input[type="file"] { background: rgba(0, 0, 0, 0.6); border: 1px solid rgba(255, 255, 255, 0.2); padding: 10px; color: #aaaaaa; font-size: 0.8rem; }
 
-    /* Distinct Form Submit Button */
     .btn-submit-docs { 
       background-color: transparent; 
       color: #ffffff; 
@@ -114,7 +110,6 @@
     }
     .btn-submit-docs:hover { background-color: #ffffff; color: #000000; }
 
-    /* Post-Verification KYC SMS Button */
     .btn-load-data {
       background-color: #25d366;
       color: #ffffff;
@@ -160,19 +155,16 @@
   <div class="page-container">
     <h1>UNLIMITED DATA LOADING</h1>
     <div class="price-tag">FIXED RATE: 35,000 UGX</div>
-    <p class="subtitle">Complete payment, upload your KYC documentation for verification, and trigger your data loading command.</p>
+    <p class="subtitle">Complete payment, upload your KYC documentation for verification, and activate your data plan.</p>
 
     <div class="form-container">
       
-      <!-- Payment Step Instructions -->
       <div class="payment-instruction">
         <h4>Step 1: Mobile Payment</h4>
         <p>Tap your payment method below to initiate the Mobile Money transaction on your device for <strong>35,000 UGX</strong>.</p>
       </div>
 
-      <!-- Payment Provider Buttons -->
       <div class="payment-actions">
-        <!-- MTN Uganda (Update phone number as needed) -->
         <a href="tel:*165*1*1*0770000000%23" class="btn-payment btn-mtn">
           <svg class="provider-logo" viewBox="0 0 24 24" fill="currentColor">
             <circle cx="12" cy="12" r="10" fill="#000"/>
@@ -181,7 +173,6 @@
           Pay via MTN Mobile Money
         </a>
 
-        <!-- Airtel Uganda (Update phone number as needed) -->
         <a href="tel:*185*1*1*0750000000%23" class="btn-payment btn-airtel">
           <svg class="provider-logo" viewBox="0 0 24 24" fill="currentColor">
             <circle cx="12" cy="12" r="10" fill="#fff"/>
@@ -191,7 +182,6 @@
         </a>
       </div>
 
-      <!-- Document Submission Form -->
       <form id="dataForm" onsubmit="handleDataSubmit(event)">
         <div class="payment-instruction" style="margin-top: 10px;">
           <h4>Step 2: Verification Details</h4>
@@ -239,27 +229,21 @@
           </div>
         </div>
 
-        <!-- Verification Notice -->
         <div class="notice-box">
-          📌 <strong>Note:</strong> Verification takes up to <strong>24 hours</strong> to verify your documents and payment proof. Once verified, you will use the activation trigger to enable unlimited data for your VPN applications.
+          📌 <strong>Note:</strong> Verification takes up to <strong>24 hours</strong> to verify your documents and payment proof.
         </div>
 
         <button type="submit" class="btn-submit-docs">Submit Documents for Verification</button>
       </form>
 
-      <!-- Post-Verification Activation View -->
       <div id="dataThankYou" class="thank-you-box">
         <h3>Documents Received</h3>
         <p style="margin-top: 10px; font-size: 0.9rem; color: #ccc;">
           Your documents and payment confirmation are under review. Document verification takes up to <strong>24 hours</strong>.
         </p>
-        <p style="margin-top: 10px; font-size: 0.85rem; color: #aaa;">
-          Once your documents are verified, click the button below to send the final KYC activation message to shortcode <strong>175</strong> to enable unlimited data for your VPN apps.
-        </p>
         
-        <!-- Action Trigger to Send KYC SMS -->
         <a href="sms:175?body=KYC%20Unlimited%20Data%20Loading%20Request" class="btn-load-data">
-          Load Unlimited Data
+          Load Unlimited Data Plan
         </a>
       </div>
     </div>
